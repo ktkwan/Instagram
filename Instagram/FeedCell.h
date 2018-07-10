@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FeedCell.h
 //  Instagram
 //
 //  Created by Katie Kwan on 7/9/18.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface FeedCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @end
-
