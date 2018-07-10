@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import "Parse.h"
+#import "ParseUI.h"
 
 @interface FeedCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet PFImageView *postImage;
+@property (weak, nonatomic) IBOutlet UILabel *captionLabel;
+@property (strong, nonatomic) Post *post;
 
 @end

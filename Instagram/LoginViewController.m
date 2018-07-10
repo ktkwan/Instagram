@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "Parse.h"
-#import "SignUpViewController.h"
 #import "FeedViewController.h"
 
 @interface LoginViewController ()

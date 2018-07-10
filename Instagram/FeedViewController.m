@@ -11,13 +11,18 @@
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "Post.h"
+#import "ParseUI.h"
 
-@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *feedArray;
 - (IBAction)logOutButton:(id)sender;
+- (IBAction)pictureButton:(id)sender;
 
 @end
+
+
 
 @implementation FeedViewController
 
@@ -25,7 +30,16 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = 450;
     // Do any additional setup after loading the view.
+    [self.tableView reloadData];
+    [self onTimer];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:true];
+     [self onTimer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +48,7 @@
 }
 
 - (void) onTimer{
-    PFQuery *query = [PFQuery queryWithClassName:@"Message_fbu2018"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
     
@@ -62,14 +76,14 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
-    PFObject *message = self.feedArray[indexPath.row];
-    cell.userNameLabel.text = message[@"text"];
+    Post *message = self.feedArray[indexPath.row];
+    cell.post = message;
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.feedArray.count;
 }
 
 
@@ -81,8 +95,12 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
         appDelegate.window.rootViewController = loginViewController;
-       
+       //[self dismissViewControllerAnimated:true completion:nil];
         // PFUser.current() will now be nil
     }];
+}
+
+
+- (IBAction)pictureButton:(id)sender {
 }
 @end
