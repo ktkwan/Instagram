@@ -110,10 +110,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdr-tC-bad">
-                                <rect key="frame" x="16" y="84" width="117" height="117"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-pF-BnG">
                                 <rect key="frame" x="141" y="73" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,6 +117,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS2-Pb-1zP">
+                                <rect key="frame" x="17" y="83" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take a Picture"/>
+                                <connections>
+                                    <action selector="onTapTakePicture:" destination="1tJ-5S-Zgl" eventType="touchUpInside" id="QMK-CG-wZo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCu-Mf-PeG">
+                                <rect key="frame" x="256" y="83" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera Roll"/>
+                                <connections>
+                                    <action selector="onTapCameraRoll:" destination="1tJ-5S-Zgl" eventType="touchUpInside" id="VMr-ca-tRM"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdr-tC-bad">
+                                <rect key="frame" x="16" y="130" width="117" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gLg-tO-RNl"/>
@@ -148,10 +164,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cameraRollButton" destination="CCu-Mf-PeG" id="cjg-rV-WUq"/>
                         <outlet property="cancelButton" destination="7IF-Me-bfY" id="mzI-Dr-fED"/>
                         <outlet property="captionText" destination="SGe-pF-BnG" id="4Zl-0g-cid"/>
                         <outlet property="postImage" destination="cdr-tC-bad" id="npn-Au-2de"/>
                         <outlet property="shareButton" destination="b1w-EA-oLi" id="pCV-Rq-v8k"/>
+                        <outlet property="takeAPictureButton" destination="fS2-Pb-1zP" id="Szw-w2-9o7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Or-B9-Qcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
