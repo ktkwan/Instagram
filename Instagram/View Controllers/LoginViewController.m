@@ -66,7 +66,7 @@
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"User registered successfully");
-             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
             
             // manually segue to logged in view
         }
@@ -76,21 +76,15 @@
 
 - (void) notification{
     if ([self.usernameField.text isEqual:@""]){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                       message:@"Please type in username and password"
-                                                                preferredStyle:(UIAlertControllerStyleAlert)];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                               style:UIAlertActionStyleCancel
-                                                             handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please type in username and password" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                                                                  // handle cancel response here. Doing nothing will dismiss the view.
                                                              }];
         // add the cancel action to the alertController
         [alert addAction:cancelAction];
         
         // create an OK action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"  style:UIAlertActionStyleDefault  handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
                                                          }];
         // add the OK action to the alert controller
@@ -107,26 +101,26 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-    if( [segue.identifier isEqualToString:@"segueToSignUpViewController" ] ){
-    
-    SignUpViewController *signUpViewController = [segue destinationViewController];
-        
-    signUpViewController.delegate = self;
-    } else {
-        FeedViewController *feedViewController = [segue destinationViewController];
-        
-        feedViewController.delegate = self;
-        
-    }
-    
-}
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ 
+ if( [segue.identifier isEqualToString:@"segueToSignUpViewController" ] ){
+ 
+ SignUpViewController *signUpViewController = [segue destinationViewController];
+ 
+ signUpViewController.delegate = self;
+ } else {
+ FeedViewController *feedViewController = [segue destinationViewController];
+ 
+ feedViewController.delegate = self;
+ 
+ }
+ 
+ }
  */
 
 - (IBAction)loginButton:(id)sender {
@@ -134,13 +128,13 @@
     [self notification];
     
 }
-    
+
 
 - (IBAction)signUpButton:(id)sender {
     [self registerUser];
     [self notification];
-   
-   
+    
+    
     
 }
 

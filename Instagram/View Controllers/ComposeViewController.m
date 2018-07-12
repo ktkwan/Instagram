@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -38,7 +37,7 @@
     // Get the image captured by the UIImagePickerController
     //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
+    self.postImage.image = nil;
     self.postImage.image = editedImage;
     self.picture = editedImage;
     
@@ -76,11 +75,6 @@
     [self presentViewController:imagePickerVC animated:YES completion:nil];
     // Do any additional setup after loading the view.
     
-    [UIImagePickerController  isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
-    
-    
 }
 
 - (IBAction)onTapCameraRoll:(id)sender {
@@ -90,8 +84,6 @@
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-    NSLog(@"Camera 🚫 available so we will use photo library instead");
-    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 
@@ -100,10 +92,11 @@
 }
 
 - (IBAction)onTapShareButton:(id)sender {
-    NSLog(@"hello");
     [Post postUserImage: self.picture withCaption: self.captionText.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         
     }];
+    
+
     [self dismissViewControllerAnimated:true completion:nil];
 }
 @end
