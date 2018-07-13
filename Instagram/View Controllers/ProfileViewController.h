@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol ProfileViewControllerDelegate
+@end
 
 @interface ProfileViewController : UIViewController
+
+@property (nonatomic, strong) id<ProfileViewControllerDelegate> delegate;
 
 @end

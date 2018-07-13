@@ -17,6 +17,7 @@
 		9E81619720F40A860019A27B /* InstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E81619620F40A860019A27B /* InstagramTests.m */; };
 		9E8161A220F40A860019A27B /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8161A120F40A860019A27B /* InstagramUITests.m */; };
 		9E8161B720F420D90019A27B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8161B620F420D90019A27B /* LoginViewController.m */; };
+		9E8DB9CD20F8222600D1ABD3 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8DB9CC20F8222600D1ABD3 /* ProfileCell.m */; };
 		9ED4C02B20F42FEA00286974 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C02A20F42FEA00286974 /* FeedViewController.m */; };
 		9ED4C02E20F43A7000286974 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C02D20F43A7000286974 /* FeedCell.m */; };
 		9ED4C03120F523EB00286974 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C03020F523EB00286974 /* ComposeViewController.m */; };
@@ -68,6 +69,8 @@
 		9E8161A320F40A860019A27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E8161B520F420D90019A27B /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		9E8161B620F420D90019A27B /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9E8DB9CB20F8222600D1ABD3 /* ProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		9E8DB9CC20F8222600D1ABD3 /* ProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 		9ED4C02920F42FEA00286974 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		9ED4C02A20F42FEA00286974 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		9ED4C02C20F43A7000286974 /* FeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedCell.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				9ED4C02D20F43A7000286974 /* FeedCell.m */,
 				9ED4C03520F5359C00286974 /* Post.h */,
 				9ED4C03620F5359C00286974 /* Post.m */,
+				9E8DB9CB20F8222600D1ABD3 /* ProfileCell.h */,
+				9E8DB9CC20F8222600D1ABD3 /* ProfileCell.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				9E3D028620F6B12A00F63FBE /* DetailsViewController.m in Sources */,
 				9ED4C03120F523EB00286974 /* ComposeViewController.m in Sources */,
 				9E81617F20F40A850019A27B /* AppDelegate.m in Sources */,
+				9E8DB9CD20F8222600D1ABD3 /* ProfileCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
