@@ -38,6 +38,9 @@
     self.userName.text = self.post.author.username;
     self.caption.text = self.post.caption;
     self.picture.file = self.post.image;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MMMMd h:mm a"];
+    self.timeStamp.text = [dateFormat stringFromDate:self.post.createdAt];
     //self.timeStamp.text = self.post.t
 }
 

@@ -32,8 +32,29 @@
     self.userNameLabel.text = self.post.author.username;
     self.postImage.file = self.post.image;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat:@"yyyy-MM-ddTHH:mm:ss.SSSZ"];
+    [dateFormat setDateFormat:@"MMMMd h:mm a"];
     self.timeStamp.text = [dateFormat stringFromDate:self.post.createdAt];
+    NSString* likeCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
+    self.likeLabel.text = likeCount;
+}
+- (IBAction)didTapLikeButton:(id)sender {
+   
+    if (self.post.liked == NO){
+        self.likeButton.selected = YES;
+        self.post.liked = YES;
+        int likes = [self.post.likeCount intValue] + 1;
+        self.post.likeCount = [NSNumber numberWithInteger:likes];
+        self.likeLabel.text = [self.post.likeCount stringValue];
+        
+        
+    } else {
+        self.post.liked = NO;
+        self.likeButton.selected = NO;
+        int likes = [self.post.likeCount intValue] - 1;
+        self.post.likeCount = [NSNumber numberWithInteger:likes];
+        self.likeLabel.text = [self.post.likeCount stringValue];
+        //self.post.likeCount -= 1;
+    }
 }
 
 

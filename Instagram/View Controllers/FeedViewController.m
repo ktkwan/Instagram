@@ -15,12 +15,17 @@
 #import "ParseUI.h"
 #import "DetailsViewController.h"
 
-@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *feedArray;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *logOutButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *pictureButton;
+ @property (assign, nonatomic) BOOL isMoreDataLoading;
+
+
+
+
 
 
 
@@ -48,6 +53,34 @@
 }
 
 
+-(void)loadMoreData{
+
+            // Update flag
+            self.isMoreDataLoading = false;
+            
+            // ... Use the new data to update the data source ...
+            
+            // Reload the tableView now that there is new data
+            [self.tableView reloadData];
+    
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            [self loadMoreData];
+            
+            // ... Code to load more results ...
+        }
+    }
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:true];
@@ -89,11 +122,10 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if( [segue.identifier isEqualToString:@"segueToDetailsViewController"]){
+    if([segue.identifier isEqualToString:@"segueToDetailsViewController"]){
         
         UITableViewCell *tappedCell = sender;
-        
+        NSLog(@"HELLO");
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         
         Post *postToSend = self.feedArray[indexPath.row];

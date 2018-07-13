@@ -39,8 +39,9 @@
     
     CGFloat postersPerLine = 3;
     CGFloat itemWidth = self.collectionView.frame.size.width / postersPerLine;
-    CGFloat itemHeight = 1.5*itemWidth;
+    CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    layout.minimumLineSpacing = 0;
     
     
     
