@@ -53,8 +53,11 @@
     [super viewWillAppear:true];
     [self onTimer];
     [self.collectionView reloadData];
+   
     
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -68,6 +71,7 @@
     [query whereKey:@"author" equalTo:PFUser.currentUser];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
+    self.userNameLabel.text = PFUser.currentUser.username;
     
     
     [query includeKeys:@[@"author", @"createdAt"]];

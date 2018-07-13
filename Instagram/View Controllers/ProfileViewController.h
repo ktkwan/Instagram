@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+
 @protocol ProfileViewControllerDelegate
 @end
 
 @interface ProfileViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
+
 
 @property (nonatomic, strong) id<ProfileViewControllerDelegate> delegate;
 
