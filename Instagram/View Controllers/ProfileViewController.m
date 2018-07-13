@@ -12,6 +12,7 @@
 #import "ProfileCell.h"
 #import "Post.h"
 #import "AppDelegate.h"
+#import "DetailsViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -96,15 +97,29 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if( [segue.identifier isEqualToString:@"segueToDetails"]){
+        
+        UICollectionViewCell *tappedCell = sender;
+        
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        
+        Post *postToSend = self.feedArray[indexPath.row];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        
+        detailsViewController.post = postToSend;
+        
+    }
 }
-*/
+
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ProfileCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];

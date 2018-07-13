@@ -35,7 +35,7 @@
 }
 
 - (void) loadPost{
-    self.userName.text = self.post.userID;
+    self.userName.text = self.post.author.username;
     self.caption.text = self.post.caption;
     self.picture.file = self.post.image;
     //self.timeStamp.text = self.post.t
