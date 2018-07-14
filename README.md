@@ -51,7 +51,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='/insta.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/jSm4uiJ0y9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
