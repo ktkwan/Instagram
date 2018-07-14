@@ -1,14 +1,15 @@
 //
-//  CameraViewController.h
+//  PFUser+ExtendedUser.m
 //  Instagram
 //
 //  Created by Katie Kwan on 7/13/18.
 //  Copyright © 2018 Katie Kwan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-//@import AVKit
+#import "PFUser+ExtendedUser.h"
 
-@interface CameraViewController : UIViewController
+@implementation PFUser (ExtendedUser)
+
+@dynamic image;
 
 @end

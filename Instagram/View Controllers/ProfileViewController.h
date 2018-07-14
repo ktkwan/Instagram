@@ -14,6 +14,9 @@
 
 @interface ProfileViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (nonatomic, strong) PFFile *image;
+
+- (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 
 

@@ -13,16 +13,22 @@
 #import "Post.h"
 #import "AppDelegate.h"
 #import "DetailsViewController.h"
+#import "PFUser+ExtendedUser.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
+
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *feedArray;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
+
 @end
 
 @implementation ProfileViewController
+
+@dynamic image;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +38,9 @@
     self.collectionView.delegate = self;
     [self onTimer];
     [self viewWillAppear:true];
+    self.profilePicture.file = PFUser.currentUser.image;
+    [self.profilePicture loadInBackground];
+    
     
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
@@ -94,8 +103,70 @@
     }];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    self.profilePicture.image = nil;
+    self.profilePicture.image = editedImage;
+
+    //CGSize size = CGSizeMake(250, 250);
+  
+    
+    // Do something with the images (based on your use case)
+    PFUser.currentUser.image = [self getPFFileFromImage:editedImage];
+    [PFUser.currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        
+    }];
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 
+
+
+- (IBAction)setProfile:(id)sender {
+    NSLog(@"Helo");
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+    
+    [self reloadInputViews];
+}
+
+- (PFFile *)getPFFileFromImage: (UIImage * _Nullable)image {
+    
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFile fileWithName:@"image.png" data:imageData];
+}
 
 
 

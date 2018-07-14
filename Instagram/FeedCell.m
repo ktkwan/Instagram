@@ -9,6 +9,7 @@
 #import "Post.h"
 #import "ParseUI.h"
 #import "FeedCell.h"
+#import "DateTools.h"
 
 
 @implementation FeedCell
@@ -29,11 +30,17 @@
     self.postImage.file = self.post[@"image"];
     [self.postImage loadInBackground];
     self.captionLabel.text = self.post.caption;
-    self.userNameLabel.text = self.post.author.username;
+    
+    PFUser *newUser = [PFUser currentUser];
+    
+    self.userNameLabel.text = newUser.username;
     self.postImage.file = self.post.image;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat:@"MMMMd h:mm a"];
-    self.timeStamp.text = [dateFormat stringFromDate:self.post.createdAt];
+    
+    self.timeStamp.text = [self.post.createdAt timeAgoSinceNow];
+    
+    //NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+   // [dateFormat setDateFormat:@"MMMMd h:mm a"];
+    //self.timeStamp.text = [dateFormat stringFromDate:self.post.createdAt];
     NSString* likeCount = [NSString stringWithFormat:@"%@", self.post.likeCount];
     self.likeLabel.text = likeCount;
 }

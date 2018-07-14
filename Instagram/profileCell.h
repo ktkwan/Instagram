@@ -14,6 +14,8 @@
 @interface ProfileCell : UICollectionViewCell
 
 
+
+
 @property (weak, nonatomic) IBOutlet PFImageView *posts;
 
 

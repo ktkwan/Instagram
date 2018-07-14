@@ -2,7 +2,7 @@
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **25** hours spent in total
+Time spent: **28** hours spent in total
 
 ## User Stories
 
@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 - User Profiles:
 - [ ] Allow the logged in user to add a profile photo
 - [ ] Display the profile photo with each post
-- [ ] Tapping on a post's username or profile photo goes to that user's profile page
+- [X] Tapping on a post's username or profile photo goes to that user's profile page
 - [ ] User can comment on a post and see all comments for each post in the post details screen.
 - [ ] User can like a post and see number of likes for each post in the post details screen.
 - [ ] Implement a custom camera view.
@@ -36,15 +36,20 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+[X] Password is secure visually when the user types it in
+[X] User can like and unlike a post 
+
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. Autolayout
-2. 
+2. Blocks
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+
+<img src='/InstagramFinalOne.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
@@ -59,7 +64,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had trouble with collection view in the profile, but it was a small bug because I had an extra outlet. I also had trouble with the user clicking on a profile picture and being taken to their profile page.  In addition, I had trouble with having the user change their profile picture. If I had more time I would try and find the bug to get it to work.
 
 ## License
 

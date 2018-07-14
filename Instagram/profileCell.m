@@ -25,8 +25,11 @@
     self.posts.file = self.post[@"image"];
     [self.posts loadInBackground];
     self.posts.file = self.post.image;
-    
+        
 }
+
+
+
 
 
 

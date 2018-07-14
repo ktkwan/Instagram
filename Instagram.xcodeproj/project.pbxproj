@@ -23,9 +23,9 @@
 		9ED4C03120F523EB00286974 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C03020F523EB00286974 /* ComposeViewController.m */; };
 		9ED4C03420F5254B00286974 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C03320F5254B00286974 /* ProfileViewController.m */; };
 		9ED4C03720F5359C00286974 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ED4C03620F5359C00286974 /* Post.m */; };
-		9EFCE2DF20F954E9004304A8 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCE2DE20F954E9004304A8 /* CameraViewController.m */; };
 		9EFCE2E120F95699004304A8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFCE2E020F95699004304A8 /* AVFoundation.framework */; };
 		9EFCE2E320F956A1004304A8 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFCE2E220F956A1004304A8 /* AVKit.framework */; };
+		9EFCE2E620F96B7B004304A8 /* PFUser+ExtendedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFCE2E520F96B7B004304A8 /* PFUser+ExtendedUser.m */; };
 		B7DD8E8D1471BD3F1B8AC063 /* libPods-InstagramUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C108201BBEC75FB0BB7AC9D7 /* libPods-InstagramUITests.a */; };
 		CE7497BF0B18EF5594E32876 /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BE124C914B90989E97EBFA0 /* libPods-InstagramTests.a */; };
 /* End PBXBuildFile section */
@@ -84,10 +84,10 @@
 		9ED4C03320F5254B00286974 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9ED4C03520F5359C00286974 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		9ED4C03620F5359C00286974 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		9EFCE2DD20F954E9004304A8 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		9EFCE2DE20F954E9004304A8 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		9EFCE2E020F95699004304A8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9EFCE2E220F956A1004304A8 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		9EFCE2E420F96B7B004304A8 /* PFUser+ExtendedUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PFUser+ExtendedUser.h"; sourceTree = "<group>"; };
+		9EFCE2E520F96B7B004304A8 /* PFUser+ExtendedUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PFUser+ExtendedUser.m"; sourceTree = "<group>"; };
 		C108201BBEC75FB0BB7AC9D7 /* libPods-InstagramUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstagramUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2214D97AC1BF401A1591A74 /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F6E7247F62AAB98D3FE44045 /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,8 +149,6 @@
 				9ED4C03320F5254B00286974 /* ProfileViewController.m */,
 				9E3D028420F6B12A00F63FBE /* DetailsViewController.h */,
 				9E3D028520F6B12A00F63FBE /* DetailsViewController.m */,
-				9EFCE2DD20F954E9004304A8 /* CameraViewController.h */,
-				9EFCE2DE20F954E9004304A8 /* CameraViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -194,6 +192,8 @@
 				9ED4C03620F5359C00286974 /* Post.m */,
 				9E8DB9CB20F8222600D1ABD3 /* ProfileCell.h */,
 				9E8DB9CC20F8222600D1ABD3 /* ProfileCell.m */,
+				9EFCE2E420F96B7B004304A8 /* PFUser+ExtendedUser.h */,
+				9EFCE2E520F96B7B004304A8 /* PFUser+ExtendedUser.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -449,9 +449,9 @@
 				9ED4C02B20F42FEA00286974 /* FeedViewController.m in Sources */,
 				9ED4C03420F5254B00286974 /* ProfileViewController.m in Sources */,
 				9E81618D20F40A860019A27B /* main.m in Sources */,
+				9EFCE2E620F96B7B004304A8 /* PFUser+ExtendedUser.m in Sources */,
 				9ED4C03720F5359C00286974 /* Post.m in Sources */,
 				9ED4C02E20F43A7000286974 /* FeedCell.m in Sources */,
-				9EFCE2DF20F954E9004304A8 /* CameraViewController.m in Sources */,
 				9E3D028620F6B12A00F63FBE /* DetailsViewController.m in Sources */,
 				9ED4C03120F523EB00286974 /* ComposeViewController.m in Sources */,
 				9E81617F20F40A850019A27B /* AppDelegate.m in Sources */,
